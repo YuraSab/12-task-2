@@ -1,0 +1,34 @@
+.bl{
+    display: flex;
+    flex-direction: column;
+    /* to space for main */
+    height: 100vh;
+}
+
+header{
+    background: black;
+    height: 75px;
+    color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+}
+
+main{
+    /* to space for main */
+    flex: 1;
+}
+
+footer{
+    background: black;
+    height: 100px;
+    color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+
+}
+
+
