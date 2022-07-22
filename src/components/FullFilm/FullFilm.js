@@ -7,7 +7,7 @@ import {LoadingPage} from "../../pages/loading";
 export const FullFilm = ()=> {
 
     let { id } = useParams();
-    console.log(id);
+    // console.log(id);
 
     const [fullFilm, setFullFilm] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
@@ -18,7 +18,7 @@ export const FullFilm = ()=> {
             setIsLoading(true);
             const data = await movieService.getFilmById(id);
             setFullFilm(data);
-            console.log(data);
+            // console.log(data);
         }catch (e){
             console.error(e);
         }finally {
@@ -30,7 +30,8 @@ export const FullFilm = ()=> {
 
     useEffect(() => {
         fetchFullFilm();
-    }, )
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
 
     // const {poster_path, vote_count, vote_average, release_date, overview, original_title, movieGenresList} = fullFilm;

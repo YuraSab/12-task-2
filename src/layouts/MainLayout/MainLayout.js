@@ -14,7 +14,9 @@ export const MainLayout = () => {
                 <Route path={'/'} element={<MainComponent/>}>
                     <Route index element={<Home/>}/>
                     <Route path={'*'} element={<Home/>}/>
-                    <Route path={`/:id`} key={generateUniqueID} element={<FullFilm key={generateUniqueID}/>}/>
+                    <Route path={`/:id`} key={generateUniqueID} element={<FullFilm
+                        // key={generateUniqueID}
+                    />}/>
                 </Route>
             </Routes>
         </div>

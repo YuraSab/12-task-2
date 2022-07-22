@@ -15,8 +15,12 @@ export const Home = () => {
 
     const fetchFilms = async () => {
         try {
-            const {results, page, total_pages, total_results} = await movieService.getFilms();
-            console.log(results, page, total_pages, total_results)
+            const {results,
+                // page,
+                // total_pages,
+                // total_results
+            } = await movieService.getFilms();
+            // console.log(results, page, total_pages, total_results)
             return results
         }catch (e){
             console.error(e);
@@ -40,7 +44,7 @@ export const Home = () => {
         try{
             setIsLoading(true);
             const [movies, genres] = await Promise.all(requests);
-            console.log({movies, genres});
+            // console.log({movies, genres});
 
             const mergeMoviesWithGenres = movies.map((movie) => {
                 const {genre_ids} = movie;
@@ -64,8 +68,8 @@ export const Home = () => {
 
     useEffect(() => {
         fetchData()
-
-    }, )
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
 
 
