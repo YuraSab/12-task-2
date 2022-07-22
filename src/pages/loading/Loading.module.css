@@ -1,0 +1,10 @@
+.loading{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 45px;
+    font-weight: bold;
+    color: black;
+    padding-top: 330px;
+
+}
