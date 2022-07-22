@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import {genreService, movieService} from "../../services";
+import {movieService} from "../../services";
 import {LoadingPage} from "../../pages/loading";
-import styles from "./FullFilmModule.css";
+import styles from "./FullFilm.module.css";
 
 export const FullFilm = () => {
 
@@ -17,6 +17,7 @@ export const FullFilm = () => {
         try {
             setIsLoading(true);
             const data = await movieService.getFilmById(id);
+
             setFullFilm(data);
             console.log(data);
         } catch (e) {
@@ -26,47 +27,10 @@ export const FullFilm = () => {
         }
     }
 
-    // const fetchGenres = async () => {
-    //     try {
-    //         const {genres} = await genreService.getGenres();
-    //         return genres
-    //         // console.log(data)
-    //     }catch (e){
-    //         console.error(e);
-    //     }
-    // }
-
-
-    // const fetchData = async () => {
-    //     const requests = [fetchFilms(), fetchGenres()];
-    //
-    //     try{
-    //         setIsLoading(true);
-    //         const [movies, genres] = await Promise.all(requests);
-    //         // console.log({movies, genres});
-    //
-    //         const mergeMoviesWithGenres = movies.map((movie) => {
-    //             const {genre_ids} = movie;
-    //             const movieGenresList = genre_ids.map(genreId => genres.find(el => el.id === genreId));
-    //
-    //             return {
-    //                 ...movie,
-    //                 movieGenresList
-    //             }
-    //         })
-    //         setFilmList(mergeMoviesWithGenres);
-    //
-    //     }catch (e){
-    //         console.error(e);
-    //     }finally {
-    //         setIsLoading(false);
-    //     }
-    // }
-
-
 
     useEffect(() => {
-        fetchFullFilm();
+
+        fetchFullFilm()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -97,28 +61,36 @@ export const FullFilm = () => {
 
 
     return (
-        <div>
-            <h1>{fullFilm.original_title}</h1>
+        <div className={styles.main}>
 
-            <div className={styles.imgAndDescription}>
-                <div>
-                    <img src={`https://image.tmdb.org/t/p/w200${fullFilm.poster_path}`}
-                         alt={`${fullFilm.original_title}`}
-                    />
-                </div>
-                {/*<div>*/}
-                {/*    {fullFilm.movieGenresList.map(({name, id}, i) => (*/}
-                {/*        <span key={id}>*/}
-                {/*            {name}{i < fullFilm.movieGenresList.length - 1 && " - "}*/}
-                {/*        </span>*/}
-                {/*    ))}*/}
-                {/*</div>*/}
+            <div className={styles.title}>
+                <h1>{fullFilm.original_title}</h1>
+            </div>
+
+            <div className={styles.image}>
+
+                <img src={`https://image.tmdb.org/t/p/w300${fullFilm.poster_path}`}
+                     alt={`${fullFilm.original_title}`}
+                />
+            </div>
+            <div className={styles.description}>
+                <h3>
+                    Date: {fullFilm.release_date}
+                </h3>
+                <h3>
+                    Rating: {fullFilm.vote_average} (voted: {fullFilm.vote_count})
+                </h3>
+            </div>
+            <div className={styles.text}>
+                <h3>Description:</h3>
+                <h3>{fullFilm.overview}</h3>
             </div>
 
 
-            <h1>{fullFilm.genres.map((el) => (<span>{el.name}</span>))}</h1>
-            <h1>{fullFilm.tagline}</h1>
-            <p>{fullFilm.overview}</p>
+
         </div>
+
+
+
     )
 };

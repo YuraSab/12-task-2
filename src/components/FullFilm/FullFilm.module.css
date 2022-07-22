@@ -1,0 +1,31 @@
+.main{
+    display: grid;
+    grid-template-areas:
+    "title . . ."
+    "photo description . ."
+    "text text text text";
+    padding-left: 20px;
+
+}
+
+.title{
+    grid-area: title;
+}
+
+.image{
+    grid-area: photo;
+}
+
+.description{
+    grid-area: description;
+}
+
+.text{
+    grid-area: text;
+}
+
+.none{
+    grid-area: none;
+}
+
+
