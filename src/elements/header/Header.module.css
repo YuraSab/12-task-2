@@ -1,0 +1,22 @@
+.main{
+    height: 110px;
+    background: black;
+
+    display: flex;
+    padding-left: 75px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link{
+    color: lightgray;
+    font-size: 27px;
+    font-weight: bold;
+    text-decoration: none;
+    /*text-transform: uppercase;*/
+}
+
+.link:hover{
+    color: blue;
+    font-size: 30px;
+}

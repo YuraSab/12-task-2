@@ -1,33 +1,35 @@
 .bl{
     display: flex;
     flex-direction: column;
-    /* to space for main */
+    /* !!!!to space for main */
     height: 100vh;
+
 }
 
 header{
-    background: black;
-    height: 75px;
-    color: lightgray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 27px;
+    height: 110px;
 }
 
 main{
-    /* to space for main */
+    /* !!!!to space for main */
     flex: 1;
+
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    /* !!!!if you need see header and footer all the time */
+    /*overflow-y: auto;*/
 }
 
 footer{
-    background: black;
-    height: 100px;
-    color: lightgray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 27px;
+
+    height: 150px;
+
+
+
+
+
 
 }
 

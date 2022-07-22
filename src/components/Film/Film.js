@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-
+import styles from "./Film.module.css";
 
 export const Film = ({film}) => {
 
@@ -19,26 +19,35 @@ export const Film = ({film}) => {
     // vote_average: 7
     // vote_count: 1794
 
-    const {poster_path, vote_count, vote_average, release_date, overview, original_title, id, movieGenresList} = film;
+    const {poster_path,
+        // vote_count,
+        // vote_average,
+        // release_date,
+        // overview,
+        original_title,
+        id,
+        // movieGenresList
+    } = film;
 
     return (
-            <Link to={`/${id}`}>
-                <div>
+            <Link style={{textDecoration: 'none'}} to={`/${id}`}>
+                <div className={styles.borders}>
                     <div>
                         <img src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt={`${original_title}`}/>
                     </div>
                     <div>
                         <h2>{original_title}</h2>
-                        <h2>
-                            {movieGenresList.map(({name, id}, i) =>(
-                                <span key={id}>
-                            {name}{i < movieGenresList.length - 1 && " - "}
-                        </span>
-                            ))}
-                        </h2>
-                        <span>Rating: {vote_average} (total votes: {vote_count})</span>
-                        <p>{overview}</p>
-                        <span>Realise date: {release_date}</span>
+                        {/*<h2>*/}
+                        {/*    {movieGenresList.map(({name, id}, i) =>(*/}
+                        {/*        <span key={id}>*/}
+                        {/*    {name}{i < movieGenresList.length - 1 && " - "}*/}
+                        {/*</span>*/}
+                        {/*    ))}*/}
+                        {/*</h2>*/}
+                        {/*<span>Rating: {vote_average} (total votes: {vote_count})</span>*/}
+                        {/*<p>{overview}</p>*/}
+                        {/*<span>Realise date: {release_date}</span>*/}
+
                     </div>
                 </div>
             </Link>

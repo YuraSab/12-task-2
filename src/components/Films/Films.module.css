@@ -1,0 +1,15 @@
+.list{
+    /*margin: 10px;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.item{
+    width: 25%;
+    height: 100%;
+    padding: 20px;
+}
+
+
