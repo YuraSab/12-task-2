@@ -6,6 +6,10 @@
     padding-left: 75px;
     justify-content: space-between;
     align-items: center;
+
+    border-bottom-width: 4px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
 }
 
 .link{
@@ -20,3 +24,7 @@
     color: blue;
     font-size: 30px;
 }
+
+
+
+

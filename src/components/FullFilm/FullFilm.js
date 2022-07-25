@@ -61,7 +61,7 @@ export const FullFilm = () => {
 
 
     return (
-        <div className={styles.main}>
+        <div className={styles.main} style={{color: "black"}}>
 
             <div className={styles.title}>
                 <h1>{fullFilm.original_title}</h1>

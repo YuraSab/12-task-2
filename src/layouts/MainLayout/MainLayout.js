@@ -4,11 +4,14 @@ import {FullFilm} from "../../components/FullFilm";
 import {Home} from "../../pages";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 
-export const MainLayout = () => {
+export const MainLayout = ({MainB}) => {
+
+
+
 
 
     return(
-        <div style={{margin: 10}}>
+        <div style={{background: MainB[0], color: MainB[1]}}>
             <Routes>
 
                 <Route path={'/'} element={<MainComponent/>}>
