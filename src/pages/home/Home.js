@@ -80,7 +80,7 @@ export const Home = () => {
     return(
         <div>
             {
-                isLoading === null || isLoading ? <LoadingPage/> : <Films films={filmList}/>
+                isLoading === null || isLoading? <LoadingPage/> : <Films films={filmList}/>
             }
         </div>
     )
