@@ -55,7 +55,7 @@ export const BaseLayout = (
     const onChangeInput = (e) => {
         setInputValue(e.target.value);
         setSearchTerm(e.target.value);
-        console.log('changed on: ', e.target.value)
+        // console.log('changed on: ', e.target.value)
     }
 
     const onSubmit = (e) => {
@@ -69,7 +69,7 @@ export const BaseLayout = (
         // fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${key3}&query=${inputValue}`)
             .then(data => data.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setSearchMovies(data.results) ;
                 setTotalResults(data.total_results);
             })
@@ -85,25 +85,37 @@ export const BaseLayout = (
     }
 
 
+    const Search = (
+        <div style={{margin: 70}}>
 
+            <form onSubmit={onSubmit}>
+                <input
+                    type='text'
+                    // value={inputValue}
+                    onChange={onChangeInput}
+                    ref={inputRef}
+                />
+            </form>
+        </div>
+    )
 
     return (
         <div className={styles.bl}>
             <header>
-                <Header headerB={headerBC} changeC={changeColor} fontC={fontColor}/>
+                <Header headerB={headerBC} changeC={changeColor} fontC={fontColor} search={Search}/>
             </header>
 
-            <div style={{margin: 70}}>
+            {/*<div style={{margin: 70}}>*/}
 
-                <form onSubmit={onSubmit}>
-                    <input
-                        type='text'
-                        // value={inputValue}
-                        onChange={onChangeInput}
-                        ref={inputRef}
-                    />
-                </form>
-            </div>
+            {/*    <form onSubmit={onSubmit}>*/}
+            {/*        <input*/}
+            {/*            type='text'*/}
+            {/*            // value={inputValue}*/}
+            {/*            onChange={onChangeInput}*/}
+            {/*            ref={inputRef}*/}
+            {/*        />*/}
+            {/*    </form>*/}
+            {/*</div>*/}
 
             <main>
                 {

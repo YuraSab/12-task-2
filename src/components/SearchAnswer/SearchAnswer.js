@@ -5,7 +5,7 @@ import {SearchItem} from "./SearchItem";
 
 export const SearchAnswer = ({films}) => {
 
-    console.log(films)
+    // console.log(films)
 
     return(
         <div className={styles.list}>

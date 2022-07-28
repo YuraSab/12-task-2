@@ -19,7 +19,7 @@ export const FullFilm = () => {
             const data = await movieService.getFilmById(id);
 
             setFullFilm(data);
-            console.log(data);
+            // console.log(data);
         } catch (e) {
             console.error(e);
         } finally {

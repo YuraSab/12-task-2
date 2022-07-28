@@ -41,7 +41,7 @@ export const Home = () => {
             } = await movieService.getFilmsOnPage(currentPage);
             // console.log(results, page, total_pages, total_results)
             setTotalPages(total_pages);
-            console.log('pages: ', total_pages);
+            // console.log('pages: ', total_pages);
 
 
             return results
