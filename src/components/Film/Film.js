@@ -53,6 +53,7 @@ export const Film = ({film}) => {
                     {/*<span>Realise date: {release_date}</span>*/}
                 </div>
                 <div className={styles.genres}>
+
                     <h3>
                         <div style={{height: 40, textDecoration: "underline"}}>
                             Genres:

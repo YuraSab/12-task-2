@@ -2,37 +2,61 @@ import React, {useEffect, useState} from "react";
 import {genreService, movieService} from "../../services";
 import {LoadingPage} from "../loading";
 import {Films} from "../../components/Films";
+import Pagination from "../../components/Pagination/Pagination";
+
 
 export const Home = () => {
 
 
     const [filmList, setFilmList] = useState([]);
     const [isLoading, setIsLoading] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState('');
 
 
+    // version-1
+    // const fetchFilms = async () => {
+    //     try {
+    //         const {results,
+    //             // page,
+    //             // total_pages,
+    //             // total_results
+    //         } = await movieService.getFilms();
+    //         // console.log(results, page, total_pages, total_results)
+    //         return results
+    //     }catch (e){
+    //         console.error(e);
+    //     }
+    // }
 
 
-
+    // version-2
     const fetchFilms = async () => {
         try {
-            const {results,
+            const {
+                results,
                 // page,
-                // total_pages,
+                total_pages,
                 // total_results
-            } = await movieService.getFilms();
+            } = await movieService.getFilmsOnPage(currentPage);
             // console.log(results, page, total_pages, total_results)
+            setTotalPages(total_pages);
+            console.log('pages: ', total_pages);
+
+
             return results
-        }catch (e){
+        } catch (e) {
             console.error(e);
         }
     }
+
 
     const fetchGenres = async () => {
         try {
             const {genres} = await genreService.getGenres();
             return genres
             // console.log(data)
-        }catch (e){
+        } catch (e) {
             console.error(e);
         }
     }
@@ -41,7 +65,7 @@ export const Home = () => {
     const fetchData = async () => {
         const requests = [fetchFilms(), fetchGenres()];
 
-        try{
+        try {
             setIsLoading(true);
             const [movies, genres] = await Promise.all(requests);
             // console.log({movies, genres});
@@ -57,9 +81,9 @@ export const Home = () => {
             })
             setFilmList(mergeMoviesWithGenres);
 
-        }catch (e){
+        } catch (e) {
             console.error(e);
-        }finally {
+        } finally {
             setIsLoading(false);
         }
     }
@@ -67,20 +91,27 @@ export const Home = () => {
 
 
     useEffect(() => {
-        fetchData()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+            fetchData()
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        },
+        // repeat cycle everytime when number of page was changed
+        [currentPage]);
 
 
+    const nextPage = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
 
 
-
-
-
-    return(
+    return (
         <div>
             {
-                isLoading === null || isLoading? <LoadingPage/> : <Films films={filmList}/>
+                isLoading === null || isLoading ? <LoadingPage/> : (<div>
+                    <Films films={filmList}/>
+
+                    <Pagination totalPages={totalPages} currentPage={currentPage} nextPage={nextPage}/>
+                </div>)
+
             }
         </div>
     )
