@@ -19,6 +19,14 @@ class MovieService{
         const {data} = await AXIOS.get(`/movie/${id}`)
         return data
     }
+
+
+     getFilmsBySearch(searchWorlds) {
+        //movie/popular?api_key=###&page=1
+        const {data} =  AXIOS.get(`/movie/popular?&query=${searchWorlds}`)
+        return data
+    }
+
 }
 
 

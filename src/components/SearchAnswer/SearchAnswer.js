@@ -1,26 +1,30 @@
-import React from 'react';
-import {Film} from "../Film";
-import styles from "./Films.module.css";
+import React from "react";
+import styles from "../Films/Films.module.css";
+import {SearchItem} from "./SearchItem";
 
-export const Films = ({films}) => {
 
-    console.log(films, "from FilmList")
+export const SearchAnswer = ({films}) => {
 
-    return (
+    console.log(films)
+
+    return(
         <div className={styles.list}>
             {
                 films.map(value => (
 
                     <div
-                        key = {value.id}
+                        key={value.id}
                         className={styles.item}
                     >
-                        <Film
+                        <SearchItem
                             film={value}
                         />
                     </div>
+                    // <h3>{value.id}</h3>
                 ))
             }
+
         </div>
-    );
+
+    )
 };
