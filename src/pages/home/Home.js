@@ -7,7 +7,6 @@ import Pagination from "../../components/Pagination/Pagination";
 
 export const Home = () => {
 
-
     const [filmList, setFilmList] = useState([]);
     const [isLoading, setIsLoading] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
@@ -35,21 +34,14 @@ export const Home = () => {
         try {
             const {
                 results,
-                // page,
                 total_pages,
-                // total_results
             } = await movieService.getFilmsOnPage(currentPage);
-            // console.log(results, page, total_pages, total_results)
             setTotalPages(total_pages);
-            // console.log('pages: ', total_pages);
-
-
             return results
         } catch (e) {
             console.error(e);
         }
     }
-
 
     const fetchGenres = async () => {
         try {
@@ -61,34 +53,26 @@ export const Home = () => {
         }
     }
 
-
     const fetchData = async () => {
         const requests = [fetchFilms(), fetchGenres()];
-
         try {
             setIsLoading(true);
             const [movies, genres] = await Promise.all(requests);
-            // console.log({movies, genres});
-
             const mergeMoviesWithGenres = movies.map((movie) => {
                 const {genre_ids} = movie;
                 const movieGenresList = genre_ids.map(genreId => genres.find(el => el.id === genreId));
-
                 return {
                     ...movie,
                     movieGenresList
                 }
             })
             setFilmList(mergeMoviesWithGenres);
-
         } catch (e) {
             console.error(e);
         } finally {
             setIsLoading(false);
         }
     }
-
-
 
     useEffect(() => {
             fetchData()
@@ -97,10 +81,10 @@ export const Home = () => {
         // repeat cycle everytime when number of page was changed
         [currentPage]);
 
-
     const nextPage = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
+
 
 
     return (
@@ -108,10 +92,8 @@ export const Home = () => {
             {
                 isLoading === null || isLoading ? <LoadingPage/> : (<div>
                     <Films films={filmList}/>
-
                     <Pagination totalPages={totalPages} currentPage={currentPage} nextPage={nextPage}/>
                 </div>)
-
             }
         </div>
     )

@@ -7,13 +7,9 @@ import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 export const MainLayout = ({MainB}) => {
 
 
-
-
-
     return(
         <div style={{background: MainB[0], color: MainB[1]}}>
             <Routes>
-
                 <Route path={'/'} element={<MainComponent/>}>
                     <Route index element={<Home/>}/>
                     <Route path={'*'} element={<Home/>}/>

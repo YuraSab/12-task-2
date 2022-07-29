@@ -4,8 +4,6 @@ import styles from "./Films.module.css";
 
 export const Films = ({films}) => {
 
-    // console.log(films, "from FilmList")
-
     return (
         <div className={styles.list}>
             {

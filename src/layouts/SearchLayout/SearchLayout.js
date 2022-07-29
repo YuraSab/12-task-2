@@ -1,5 +1,5 @@
 import {Route, Routes} from "react-router-dom";
-import {MainSearch} from "../../components/MainSearch";
+import {MainSearch} from "../../components/SearchAnswer/MainSearch";
 import {SearchAnswer} from "../../components/SearchAnswer";
 import {FullOfSearch} from "../../components/SearchAnswer/FullOfSearch";
 
@@ -11,7 +11,6 @@ export const SearchLayout = ({films}) => {
         <div>
             <Routes>
                 <Route path={'/'} element={<MainSearch/>}>
-
                     <Route index element={<SearchAnswer films={films}/>}/>
                     <Route path={'*'} element={<SearchAnswer films={films}/>}/>
                     <Route path={':id'} element={<FullOfSearch/>} />

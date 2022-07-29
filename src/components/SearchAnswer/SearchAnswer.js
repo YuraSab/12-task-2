@@ -5,8 +5,6 @@ import {SearchItem} from "./SearchItem";
 
 export const SearchAnswer = ({films}) => {
 
-    // console.log(films)
-
     return(
         <div className={styles.list}>
             {
@@ -20,11 +18,8 @@ export const SearchAnswer = ({films}) => {
                             film={value}
                         />
                     </div>
-                    // <h3>{value.id}</h3>
                 ))
             }
-
         </div>
-
     )
 };

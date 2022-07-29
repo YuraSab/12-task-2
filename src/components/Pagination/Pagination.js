@@ -2,16 +2,12 @@ import React from "react";
 import "./PaginationSyles.css"
 
 const Pagination = (props) => {
-    //totalPages
-    //currentPage
-    //nextPage
+    //totalPages, currentPage, nextPage
 
     const listOfPageLinks = []
 
     for (let i = 1; i < 41; i++) {
 
-
-        // console.log(props.currentPage);
         let active = props.currentPage === i;
 
         listOfPageLinks.push(
@@ -24,7 +20,6 @@ const Pagination = (props) => {
             </div>
         )
     }
-
 
     return (
         <div>

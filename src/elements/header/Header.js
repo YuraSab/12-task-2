@@ -1,21 +1,16 @@
 import {Link} from "react-router-dom";
 import styles from "./Header.module.css";
-import React, {useEffect} from "react";
-import {useState} from "react";
+import React, {useState} from "react";
 
 
 export const Header = ({
                            headerB, changeC, fontC,
-                           search
-
+                           // eslint-disable-next-line react-hooks/exhaustive-deps
+                           search,
+                           // searchTerm
                        }) => {
 
-
-    const inputRef = React.createRef();
-
     const [hover, setHover] = useState(false);
-
-
 
     return (
         <div className={styles.main} style={{background: headerB[0]}}>
@@ -27,13 +22,11 @@ export const Header = ({
                 TEST CINEMA
             </div>
 
-
             <div style={{marginLeft: 500}}>
                 {
                     search
                 }
             </div>
-
 
             <div style={{marginLeft: 80}}>
                 <button onClick={changeC} style={{
@@ -51,7 +44,6 @@ export const Header = ({
                 }}>
                     Switch color
                 </button>
-
             </div>
 
         </div>
