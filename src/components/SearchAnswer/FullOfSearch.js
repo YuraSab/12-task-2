@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {useParams} from "react-router-dom";
 import {movieService} from "../../services";
+import {useEffect} from "react";
 import {LoadingPage} from "../../pages/loading";
-import styles from "./FullFilm.module.css";
+import styles from "../FullFilm/FullFilm.module.css";
 
-export const FullFilm = () => {
+
+export const FullOfSearch = () => {
 
     let {id} = useParams();
-    // console.log(id);
 
     const [fullFilm, setFullFilm] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
@@ -29,6 +30,7 @@ export const FullFilm = () => {
 
 
     useEffect(() => {
+
         fetchFullFilm()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -88,8 +90,5 @@ export const FullFilm = () => {
 
 
         </div>
-
-
-
     )
-};
+}

@@ -7,6 +7,7 @@ import {movieService} from "../../services";
 import {key3} from "../../services/key";
 import {SearchAnswer} from "../../components/SearchAnswer";
 import {Films} from "../../components/Films";
+import {SearchLayout} from "../SearchLayout";
 
 export const BaseLayout = (
     // {children}
@@ -120,7 +121,9 @@ export const BaseLayout = (
             <main>
                 {
                     totalResults > 0  ?
-                        <SearchAnswer films={searchMovies}/>
+
+                        // <SearchAnswer films={searchMovies}/>
+                        <SearchLayout films={searchMovies}/>
                         :
                         <MainLayout MainB={MainBC}/>
                 }
