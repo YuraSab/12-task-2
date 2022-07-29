@@ -54,7 +54,9 @@ export const Home = () => {
     }
 
     const fetchData = async () => {
-        const requests = [fetchFilms(), fetchGenres()];
+        // const requests = [fetchFilms(), fetchGenres()];
+        const requests = [await fetchFilms(), await fetchGenres()];
+
         try {
             setIsLoading(true);
             const [movies, genres] = await Promise.all(requests);
